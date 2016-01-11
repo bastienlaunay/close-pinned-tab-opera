@@ -1,0 +1,39 @@
+{
+  "name": "Force Close Pinned Tab",
+  "version": "0.1",
+  "manifest_version": 2,
+
+  "description": "Force a pinned tab to close with keybord shortcut Ctrl+W",
+  "developer": {
+    "name": "Bastien Launay",
+    "url": "http://bast.me"
+  },
+  "homepage_url": "http://bast.me",
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["inject.js"]
+    }
+  ],
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "commands": {
+    "forceCloseTab": {
+      "suggested_key": {
+        "default": "MacCtrl+W",
+        "mac": "MacCtrl+W"
+      },
+      "description": "Force to close a pinned tab"
+    }
+  }
+}
